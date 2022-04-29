@@ -4,17 +4,17 @@ using ByteBank.Funcionarios;
 
 GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
 
-Funcionario carlos = new Funcionario();
-carlos.Nome = "Carlos";
-carlos.CPF = "546.879.157-20";
-carlos.Salario = 2000;
+Funcionario carlos = new Funcionario(2000, "Carlos", "546.879.157 - 20");
+
+carlos.AumentarSalario();
+Console.WriteLine("Novo salário do Carlos: " + carlos.Salario);
 
 gerenciador.Registrar(carlos);
 
-Diretor roberta = new Diretor();
-roberta.Nome = "Roberta";
-roberta.CPF = "454.658.148-3";
-roberta.Salario = 5000;
+Diretor roberta = new Diretor(5000, "Roberta", "454.658.148 - 3");
+
+roberta.AumentarSalario();
+Console.WriteLine("Novo salário da Roberta: " + roberta.Salario);
 
 gerenciador.Registrar(roberta);
 
@@ -25,5 +25,6 @@ Console.WriteLine(roberta.Nome);
 Console.WriteLine(roberta.GetBonificacao());
 
 Console.WriteLine("Total de bonificações: " + gerenciador.GetTotalBonificacao());
+Console.WriteLine("Total de funcionários: " + Funcionario.TotalDeFuncionarios);
 
 Console.ReadLine();
