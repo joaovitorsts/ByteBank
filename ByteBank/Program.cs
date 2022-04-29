@@ -2,29 +2,23 @@
 using ByteBank;
 using ByteBank.Funcionarios;
 
-GerenciadorBonificacao gerenciador = new GerenciadorBonificacao();
 
-Funcionario carlos = new Funcionario(2000, "Carlos", "546.879.157 - 20");
+CalcularBonificacao();
+static void CalcularBonificacao()
+{
+    GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
 
-carlos.AumentarSalario();
-Console.WriteLine("Novo salário do Carlos: " + carlos.Salario);
+    Designer pedro = new(3000, "Pedro", "7839948323");
+    Diretor roberta = new(5000, "Roberta", "87984094043");
+    Auxiliar igor = new(2000, "Igor", "24521344323");
+    GerenteConta camila = new(4000, "Camila", "32332332326");
+    Desenvolvedor guilherme = new(3000, "Guilherme", "98237823241");
 
-gerenciador.Registrar(carlos);
+    gerenciadorBonificacao.Registrar(pedro);
+    gerenciadorBonificacao.Registrar(roberta);
+    gerenciadorBonificacao.Registrar(igor);
+    gerenciadorBonificacao.Registrar(camila);
+    gerenciadorBonificacao.Registrar(guilherme);
 
-Diretor roberta = new Diretor(5000, "Roberta", "454.658.148 - 3");
-
-roberta.AumentarSalario();
-Console.WriteLine("Novo salário da Roberta: " + roberta.Salario);
-
-gerenciador.Registrar(roberta);
-
-Console.WriteLine(carlos.Nome);
-Console.WriteLine(carlos.GetBonificacao());
-
-Console.WriteLine(roberta.Nome);
-Console.WriteLine(roberta.GetBonificacao());
-
-Console.WriteLine("Total de bonificações: " + gerenciador.GetTotalBonificacao());
-Console.WriteLine("Total de funcionários: " + Funcionario.TotalDeFuncionarios);
-
-Console.ReadLine();
+    Console.WriteLine(gerenciadorBonificacao.GetTotalBonificacao());
+}
