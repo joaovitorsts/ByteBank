@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ByteBank;
 using ByteBank.Funcionarios;
+using ByteBank.Sistemas;
 
-
-CalcularBonificacao();
+UsarSistema();
 static void CalcularBonificacao()
 {
     GerenciadorBonificacao gerenciadorBonificacao = new GerenciadorBonificacao();
@@ -21,4 +21,20 @@ static void CalcularBonificacao()
     gerenciadorBonificacao.Registrar(guilherme);
 
     Console.WriteLine(gerenciadorBonificacao.GetTotalBonificacao());
+}
+
+static void UsarSistema()
+{
+    SistemaInterno sistemaInterno = new SistemaInterno();
+
+    Diretor roberta = new(5000, "Roberta", "42879474800");
+    roberta.Senha = "teste1234";
+    sistemaInterno.Logar(roberta, roberta.Senha);
+
+    GerenteConta camila = new(4000, "Camila", "24355223553");
+    camila.Senha = "123";
+    sistemaInterno.Logar(camila, camila.Senha);
+
+    ParceiroComercial parceiro = new("123");
+    sistemaInterno.Logar(parceiro, "123");
 }
